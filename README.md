@@ -1,1 +1,9 @@
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=gil9red&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true)
+![GitHub stats](https://raw.githubusercontent.com/gil9red/gil9red/output/github-stats.svg#gh-light-mode-only)
+![GitHub stats](https://raw.githubusercontent.com/gil9red/gil9red/output/github-stats-dark.svg#gh-dark-mode-only)
+
+----
+
+![github contribution grid snake animation](https://raw.githubusercontent.com/gil9red/gil9red/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
+![github contribution grid snake animation](https://raw.githubusercontent.com/gil9red/gil9red/output/github-contribution-grid-snake.svg#gh-light-mode-only)
+
+_generated with [Platane/snk](https://github.com/Platane/snk)_
