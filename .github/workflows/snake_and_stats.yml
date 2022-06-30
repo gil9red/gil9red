@@ -1,5 +1,4 @@
-# SOURCE: https://raw.githubusercontent.com/Platane/Platane/master/.github/workflows/main.yml
-name: generate animation
+name: generate snake and stats
 
 on:
   # Run automatically every day at 00:00
@@ -18,8 +17,9 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
+
     steps:
+      # SOURCE: https://raw.githubusercontent.com/Platane/Platane/master/.github/workflows/main.yml
       # Generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
       - name: generate github-contribution-grid-snake.svg
         uses: Platane/snk/svg-only@v2
@@ -29,9 +29,19 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
+      - name: generate github-stats.svg
+        uses: wei/curl@v1
+        with:
+          args: --upload-file dist/github-stats.svg https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true
+
+      - name: generate github-stats-dark.svg
+        uses: wei/curl@v1
+        with:
+          args: --upload-file dist/github-stats-dark.svg https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=dark
+
       # Push the content of <build_dir> to a branch
       # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
-      - name: push github-contribution-grid-snake.svg to the output branch
+      - name: push github-stats.svg and github-stats-dark.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v2.6.0
         with:
           target_branch: output
