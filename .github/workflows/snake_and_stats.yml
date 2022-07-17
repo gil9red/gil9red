@@ -1,9 +1,9 @@
 name: generate snake and stats
 
 on:
-  # Run automatically every day at 00:00
+  # Run automatically at 00:00 on Monday
   schedule:
-    - cron: "0 0 * * *" 
+    - cron: "0 0 * * MON"
   
   # Allows to manually run the job at any time
   workflow_dispatch:
