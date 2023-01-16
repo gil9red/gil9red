@@ -31,8 +31,8 @@ jobs:
 
       - name: generate github-stats
         run: |
-          curl "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true" > "dist/github-stats.svg"
-          curl "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=dark" > "dist/github-stats-dark.svg"
+          curl "https://github-readme-stats-ruby-one.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true" > "dist/github-stats.svg"
+          curl "https://github-readme-stats-ruby-one.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=dark" > "dist/github-stats-dark.svg"
 
       # Push the content of <build_dir> to a branch
       # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
