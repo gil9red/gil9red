@@ -1,5 +1,4 @@
-![GitHub stats](https://raw.githubusercontent.com/gil9red/gil9red/output/github-stats.svg#gh-light-mode-only)
-![GitHub stats](https://raw.githubusercontent.com/gil9red/gil9red/output/github-stats-dark.svg#gh-dark-mode-only)
+![GitHub stats](https://raw.githubusercontent.com/gil9red/gil9red/output/github-stats.svg)
 
 _generated with [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)_
 
