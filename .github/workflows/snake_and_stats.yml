@@ -33,7 +33,7 @@ jobs:
 
       - name: generate github-stats
         run: |
-          curl -o "dist/github-stats.svg" "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=transparent"
+          sudo curl -o "dist/github-stats.svg" "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=transparent"
 
       # Push the content of <build_dir> to a branch
       # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
