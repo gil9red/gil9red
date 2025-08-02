@@ -19,11 +19,14 @@ jobs:
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PATH_OUTPUT: profile-snake-output
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      
+      - name: Set an output
+        id: output
+        run: echo "PATH_OUTPUT=profile-snake-output" >> $GITHUB_OUTPUT
     
       # SOURCE: https://raw.githubusercontent.com/Platane/Platane/master/.github/workflows/main.yml
       # Generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
@@ -32,15 +35,15 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            $PATH_OUTPUT/github-contribution-grid-snake.svg
-            $PATH_OUTPUT/github-contribution-grid-snake-dark.svg?palette=github-dark
+            ${{ steps.output.outputs.PATH_OUTPUT }}/github-contribution-grid-snake.svg
+            ${{ steps.output.outputs.PATH_OUTPUT }}/github-contribution-grid-snake-dark.svg?palette=github-dark
 
       - name: Add to git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add $PATH_OUTPUT/*
+          git add ${{ steps.output.outputs.PATH_OUTPUT }}/*
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v6
