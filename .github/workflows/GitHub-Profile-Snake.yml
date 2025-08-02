@@ -19,6 +19,7 @@ jobs:
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PATH_OUTPUT: profile-snake-output
 
     steps:
       - name: Checkout repository
@@ -31,19 +32,15 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            output/github-contribution-grid-snake.svg
-            output/github-contribution-grid-snake-dark.svg?palette=github-dark
+            $PATH_OUTPUT/github-contribution-grid-snake.svg
+            $PATH_OUTPUT/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Configure Git
+      - name: Add to git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit directory
-        working-directory: .
-        run: |
-          git add output/*
+          git add $PATH_OUTPUT/*
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v6
-  
