@@ -18,18 +18,24 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+    
       # SOURCE: https://raw.githubusercontent.com/Platane/Platane/master/.github/workflows/main.yml
       # Generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
-      - name: generate github-contribution-grid-snake.svg
+      - name: Generate github-contribution-grid-snake.svg
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            output/github-contribution-grid-snake.svg
+            output/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: generate github-stats
+      - name: Generate github-stats
         run: |
-          sudo curl -o "dist/github-stats.svg" "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=transparent"
+          sudo curl -o "output/github-stats.svg" "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=transparent"
+
+      - name: Push changes
+        run: git push
