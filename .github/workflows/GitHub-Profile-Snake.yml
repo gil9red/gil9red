@@ -1,4 +1,4 @@
-name: generate snake and stats
+name: GitHub-Profile-Snake
 
 on:
   schedule: # Execute every 24 hours
@@ -25,13 +25,7 @@ jobs:
           outputs: |
             output/github-contribution-grid-snake.svg
             output/github-contribution-grid-snake-dark.svg?palette=github-dark
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate github-stats
-        run: |
-          sudo curl -o "output/github-stats.svg" "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=transparent"
-  
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
