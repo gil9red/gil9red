@@ -3,18 +3,14 @@ name: GitHub-Profile-Summary-Cards
 on:
   schedule: # execute every 24 hours
     - cron: "* */24 * * *"
-    
-  workflow_dispatch:
 
-  # Run on every push on the main branch
-  push:
-    branches:
-    - main
+  # Allows to manually run the job at any time
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: generate-github-profile-summary-cards
+    name: Generate-github-profile-summary-cards
     permissions:
       contents: write
 
