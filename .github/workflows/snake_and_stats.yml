@@ -31,6 +31,11 @@ jobs:
       - name: Generate github-stats
         run: |
           sudo curl -o "output/github-stats.svg" "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=transparent"
+  
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit directory
         working-directory: .
