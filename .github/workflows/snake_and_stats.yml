@@ -32,5 +32,11 @@ jobs:
         run: |
           sudo curl -o "output/github-stats.svg" "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&hide_title=true&line_height=22&disable_animations=true&theme=transparent"
 
+      - name: Commit directory
+        working-directory: .
+        run: |
+          git add output/*
+          git commit -m "Commit"
+
       - name: Push changes
         run: git push
