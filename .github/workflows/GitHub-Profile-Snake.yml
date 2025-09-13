@@ -1,8 +1,8 @@
 name: GitHub-Profile-Snake
 
 on:
-  schedule: # Execute every 24 hours
-    - cron: "* */24 * * *"
+  schedule: # Execute every Monday at 00:00
+    - cron: "0 0 * * 1"
   
   # Allows to manually run the job at any time
   workflow_dispatch:
